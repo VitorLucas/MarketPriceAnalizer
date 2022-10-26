@@ -1,0 +1,11 @@
+{
+    "continente":{
+      "market": "Continente",
+      "url": "https://www.continente.pt/pesquisa/?q="
+    },
+    "auchan":{
+      "market": "Auchan",
+      "url": "https://www.auchan.pt/pt/pesquisa?q="
+    },
+  "environment": "Development"
+}
