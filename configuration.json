@@ -1,4 +1,5 @@
 {
+  "state": "DATA_COLLECT",
   "environment": "Development",
   "continente":{
     "market": "Continente",

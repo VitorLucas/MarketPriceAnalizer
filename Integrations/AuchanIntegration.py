@@ -1,4 +1,4 @@
-from Models.Product import Product
+from Repository.Models.Product import Product
 from Integrations.IntegrationBase import IntegrationBase
 from Helpers.TimeZone import TimeZone
 from Helpers.Configurations import config
