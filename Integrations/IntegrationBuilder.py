@@ -1,0 +1,4 @@
+from Integrations.ContinenteIntegration import ContinenteIntegration
+from Integrations.AuchanIntegration import AuchanIntegration
+
+integrations = [ContinenteIntegration, AuchanIntegration]
