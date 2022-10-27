@@ -2,11 +2,12 @@ from Integrations.IntegrationsBuilder import integrations
 from Repository.DataBase import MarketDataBase
 from Helpers.LoggerHandler import logging
 from Helpers.Configurations import config, product_list
+from WebServer.Dashboard import app
 
 items_to_find = product_list["name"]
 
 if __name__ == "__main__":
-    logging.info(f'Enviroment.{config["environment"]}')
+    logging.info(f'Environment.{config["environment"]}')
     logging.info('Start search for products.')
 
     MarketDataBase.create_table()
@@ -20,7 +21,8 @@ if __name__ == "__main__":
                     MarketDataBase.add_products(integrations[i].find(items_to_find[j]))
 
         case "DATA_ANALIZE":
-            NotImplemented
+            #test = MarketDataBase.get_products()
+            app.run_server(debug=True)
         case _:
             logging.info('No state was set in configuration.json file.')
 

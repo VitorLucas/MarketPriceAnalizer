@@ -52,3 +52,13 @@ class MarketDataBase:
             logging.info('Finished add')
         except NameError:
             logging.error(f'error while add products: {NameError}')
+
+    @classmethod
+    def get_products(self):
+        conn = self.get_connection()
+        cur = conn.cursor()
+        query = "SELECT seller, strftime('%d', datetime(occurrence/1000, 'unixepoch', 'localtime')) AS day, product, CAST(price as decimal)price FROM PRODUCTS"
+        cur.execute(query)
+        products = cur.fetchall()
+
+        return products

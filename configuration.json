@@ -1,6 +1,6 @@
 {
-  "state": "DATA_COLLECT",
-  "environment": "Development",
+  "state": "DATA_ANALIZE",
+  "environment": "Production",
   "continente":{
     "market": "Continente",
     "url": "https://www.continente.pt/pesquisa/?q="
