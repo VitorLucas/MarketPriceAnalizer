@@ -1,5 +1,5 @@
 import sqlite3 as sql
-from Helpers.Configuration import config
+from Helpers.Configurations import config
 from Helpers.LoggerHandler import logging
 
 class MarketDataBase:

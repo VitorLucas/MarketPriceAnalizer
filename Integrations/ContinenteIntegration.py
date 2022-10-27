@@ -1,7 +1,7 @@
 from Integrations.IntegrationBase import IntegrationBase
 from Models.Product import Product
 from Helpers.TimeZone import TimeZone
-from Helpers.Configuration import config
+from Helpers.Configurations import config
 from Helpers.LoggerHandler import logging
 
 class ContinenteIntegration(IntegrationBase):

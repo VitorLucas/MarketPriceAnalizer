@@ -1,7 +1,7 @@
-from Integrations.IntegrationBuilder import integrations
+from Integrations.IntegrationsBuilder import integrations
 from Repository.DataBase import MarketDataBase
 from Helpers.LoggerHandler import logging
-from Helpers.Configuration import config, product_list
+from Helpers.Configurations import config, product_list
 
 items_to_find = product_list["name"]
 

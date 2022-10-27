@@ -1,7 +1,7 @@
 from Models.Product import Product
 from Integrations.IntegrationBase import IntegrationBase
 from Helpers.TimeZone import TimeZone
-from Helpers.Configuration import config
+from Helpers.Configurations import config
 from Helpers.LoggerHandler import logging
 
 class AuchanIntegration(IntegrationBase):
