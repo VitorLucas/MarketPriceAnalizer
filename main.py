@@ -2,7 +2,7 @@ from Integrations.IntegrationsBuilder import integrations
 from Repository.DataBase import MarketDataBase
 from Helpers.LoggerHandler import logging
 from Helpers.Configurations import config, product_list
-from WebServer.Dashboard import app
+from WebServer.Dashboard import dashboard
 
 items_to_find = product_list["name"]
 
@@ -22,7 +22,7 @@ if __name__ == "__main__":
 
         case "DATA_ANALIZE":
             #test = MarketDataBase.get_products()
-            app.run_server(debug=True)
+            dashboard()
         case _:
             logging.info('No state was set in configuration.json file.')
 

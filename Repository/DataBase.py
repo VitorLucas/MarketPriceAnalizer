@@ -1,4 +1,5 @@
 import sqlite3 as sql
+import pandas as pd
 from Helpers.Configurations import config
 from Helpers.LoggerHandler import logging
 
@@ -57,8 +58,20 @@ class MarketDataBase:
     def get_products(self):
         conn = self.get_connection()
         cur = conn.cursor()
-        query = "SELECT seller, strftime('%d', datetime(occurrence/1000, 'unixepoch', 'localtime')) AS day, product, CAST(price as decimal)price FROM PRODUCTS"
-        cur.execute(query)
-        products = cur.fetchall()
+        query = "SELECT seller, strftime('%d', datetime(occurrence/1000, 'unixepoch', 'localtime')) AS day, product, CAST(price as decimal) as price FROM PRODUCTS"
+        return pd.read_sql(query, conn)
 
-        return products
+    @classmethod
+    def get_sellers(self):
+        conn = self.get_connection()
+        cur = conn.cursor()
+        query = "SELECT Distinct(seller) FROM PRODUCTS"
+        return cur.execute(query)
+
+    @classmethod
+    def get_products_by_seller(self):
+        conn = self.get_connection()
+        cur = conn.cursor()
+        #query = "SELECT Distinct(product) FROM PRODUCTS WHERE seller = ?"
+        query = "SELECT Distinct(product) FROM PRODUCTS"
+        return cur.execute(query)
