@@ -1,15 +1,17 @@
+# -*- coding: utf-8 -*-
 from Integrations.IntegrationsBuilder import integrations
 from Repository.DataBase import MarketDataBase
 from Helpers.LoggerHandler import logging
 from Helpers.Configurations import config, product_list
-from WebServer.Dashboard import dashboard
+from Helpers.filter import Filter
+#from WebServer.Dashboard import dashboard
 
 items_to_find = product_list["name"]
 
 if __name__ == "__main__":
     logging.info(f'Environment.{config["environment"]}')
     logging.info('Start search for products.')
-
+    logging.info(Filter.filter_expression("teste"))
     MarketDataBase.create_table()
 
     match config["state"]:
@@ -22,7 +24,10 @@ if __name__ == "__main__":
 
         case "DATA_ANALIZE":
             #test = MarketDataBase.get_products()
-            dashboard()
+            #dashboard()
+
+            print(Filter.filter_price(" 1.99 €/Kg"))
+            print(Filter.filter_expression("Aperitivo Doritos Tex Mex 120g"))
         case _:
             logging.info('No state was set in configuration.json file.')
 

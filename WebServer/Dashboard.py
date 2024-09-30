@@ -4,6 +4,7 @@ import pandas as pd
 import sqlite3 as sql
 import datetime as dt
 
+from Helpers.Plot import Plot
 from Repository.DataBase import MarketDataBase
 
 pn.extension(sizing_mode='stretch_width')
@@ -37,6 +38,7 @@ def update_fruits(which_seller):
 
 title = '## Evolution of fruit prices'
 cursor.execute("select distinct seller from PRODUCTS order by product")
+
 sellers = [i[0] for i in cursor.fetchall()]  # convert to list
 tickerCompany = pn.widgets.Select(name='Seller', options=sellers)
 fruits = update_fruits(sellers[0])
@@ -47,7 +49,6 @@ def company_changed(*event):
     global fruits, tickerFruit
     fruits = update_fruits(event[0].new)
     tickerFruit.options = fruits
-
 
 source = pd.read_sql(
     "SELECT strftime('%d-%m-%Y', datetime(occurrence/1000, 'unixepoch', 'localtime')) as date,price,seller,"
@@ -80,7 +81,6 @@ def get_plot(ticker_company, ticker_fruit, date_range):
         .encode(x='date', y='price', tooltip=alt.Tooltip(['date', 'price']))
     return chart
 
-
 dashboard = pn.template.BootstrapTemplate(title=title)
 dashboard.sidebar.append(pn.Column("#Options",
                                    date_range_slider,
@@ -88,10 +88,14 @@ dashboard.sidebar.append(pn.Column("#Options",
                                    tickerFruit,
                                    css_classes=['panel-widget-box']))
 dashboard.main.append(
-    pn.Row(
+    pn.Column(
         pn.Column("#Evolution of fruit prices", get_plot),
+        # pn.Column("#Test", Plot.chart()),
+        # pn.Column("#Test", Plot.chart()),
+        # pn.Column("#Test", Plot.chart()),
+        # pn.Column("#Test", Plot.chart()),
 
-    )
+    ),
 )
 dashboard.show()
 dashboard.servable()

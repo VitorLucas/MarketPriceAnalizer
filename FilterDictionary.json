@@ -1,0 +1,34 @@
+{
+  "expressions":[
+    {"pattern": "€", "replacment":"" },
+    {"pattern": "Kg", "replacment":"" },
+    {"pattern": "/", "replacment":"" },
+    {"pattern": "[0-9]", "replacment":" " },
+    {"pattern": "emb.", "replacment":"" },
+    {"pattern": "  g", "replacment":"" },
+    {"pattern": "  ", "replacment":" " },
+    {"pattern":"banana culinária","replacment": "Banana para assar"},
+    {"pattern":"madeira","replacment": "Madeira"},
+    {"pattern":"banana madeira","replacment": "Banana da Madeira"},
+    {"pattern":"banana ","replacment": "Bananas "},
+    {"pattern":" nacional","replacment": ""},
+    {"pattern":"canárias","replacment": "Canárias"},
+    {"pattern":"banana canárias","replacment": "Banana das Canárias"},
+    {"pattern":"biológico","replacment": "bio"},
+    {"pattern":"biológicos","replacment": "bio"},
+    {"pattern":"biológica","replacment": "bio"},
+    {"pattern":"biológicas","replacment": "bio"}
+  ],
+  "char":[
+
+  ],
+  "price":[
+    {"pattern": "/", "replacment":"" },
+    {"pattern": "€", "replacment":"" },
+    {"pattern": "Kg", "replacment":"" },
+    {"pattern": ",", "replacment":"." },
+    {"pattern": "emb.", "replacment":"" },
+    {"pattern": " g", "replacment":"" },
+    {"pattern": "Quilograma", "replacment":"" }
+  ]
+}
